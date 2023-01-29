@@ -1,0 +1,35 @@
+    <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #f1f1f1">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/home">
+          <img src="/assets/Logo1.png" alt="..." height="70">
+        </a>
+        <a class="navbar-brand" routerLink="/home">
+          <h1>Kleiderspenden Sauerland e.V.</h1>
+        </a>
+        <div class="navbar me-auto mb-2 mb-lg-0" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item" [routerLinkActive]="['active']">
+              <a class="nav-link" routerLink="/home">Über uns</a>
+            </li>
+
+            <li class="nav-item dropdown" [routerLinkActive]="['active']">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                aria-expanded="false">Partnervereine</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Kleiderspende Dortmund</a>
+                <a class="dropdown-item" href="#">Kleiderspende Düsseldorf</a>
+                <a class="dropdown-item" href="#">Kleiderspende Eifel</a>
+              </div>
+            </li>
+
+            <li class="nav-item" [routerLinkActive]="['active']">
+              <a class="nav-link" routerLink="/registry-page">Kleiderspende registrieren</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<section class="container">
+    <router-outlet></router-outlet>
+  </section>
+    <app-footer class="mt-auto"></app-footer>

@@ -1,0 +1,25 @@
+<div class="container">
+
+    <h3>Die Registrierung war erfolgreich</h3>
+    <div id="textContainer">
+        <div>
+            <p>Hallo {{registryConclusion.Name}}</p>
+            <p style="margin-bottom: 0;">Vielen Dank für die Registrierung Ihrer Spende für {{registryConclusion.ClothingType}}-Kleidung in das
+                Kriesengebiet {{registryConclusion.CrisisArea.Name}}.</p>
+        </div>        
+        <div id="deliveryContainer" *ngIf="registryConclusion.Pickup=='personal'">
+            <p>Bitte bringen Sie die Kleidung zu unserer Geschäftsstelle in Arnsberg unter der Adresse.</p>
+            <p>Kleiderspende Sauerland <br>
+            Musterstraße 123 <br>
+            59821 Arnsberg</p>
+        </div>
+        <div id="pickupContainer" *ngIf="registryConclusion.Pickup=='pickup'">
+            <p>Wir holen die Kleidung am {{pickupDate | date: 'dd.MM.yyyy'}} zwischen 9:00 und 15:00 Uhr an der von Ihnen angegebenen Adresse ab:</p>
+            <p>{{registryConclusion.Name}}<br>
+            {{registryConclusion.Adress}}<br>
+            {{registryConclusion.Plz}} {{registryConclusion.City}}</p>
+            <br/>
+            <p>Bitte legen Sie die Kleidung verpackt vor Ihre Haustür.</p>
+        </div>
+    </div>
+</div>

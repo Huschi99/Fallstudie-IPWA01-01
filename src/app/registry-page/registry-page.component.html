@@ -1,0 +1,80 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="container">
+        <h3>Kleiderspende registrieren</h3>
+        <div id="pickupSelectionContainer">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="pickupSelection" name="pickupSelection" checked="checked"
+                    class="custom-control-input" value="pickup" (change)="this.pickupSelectionChanged($event)"
+                    [(ngModel)]="registryEntry.Pickup">
+                <label class="custom-control-label" for="pickupSelection">Abholung</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="personalSelection" name="pickupSelection" class="custom-control-input"
+                    value="personal" (change)="this.pickupSelectionChanged($event)" [(ngModel)]="registryEntry.Pickup">
+                <label class="custom-control-label" for="personalSelection">Perönliche Abgabe</label>
+            </div>
+        </div>
+
+        <div class="row" id="adressContainer">
+            <form class="form-horizontal" role="form">
+
+                <h5>Abholadresse</h5>
+
+                <div class="form-group row">
+                    <div class="col-sm">
+                        <label for="inputFullName" class="control-label">Name</label>
+                        <input type="text" class="form-control" id="inputFullName" name="fullName"
+                            placeholder="Vor- und Zuname" [(ngModel)]="registryEntry.Name">
+                        <div class="valid-feedback">Valid Username.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="col-sm">
+                        <label class="control-label">Straße</label>
+                        <input type="text" class="form-control" id="inputStreet" name="street" placeholder="Straße"
+                            [(ngModel)]="registryEntry.Adress">
+                        <div class="valid-feedback">Valid Username.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm">
+                        <label for="inputPostalCode" class="control-label">Postleitzahl</label>
+                        <input type="number" class="form-control" id="inputPostalCode" name="postalCode"
+                            placeholder="PLZ" [(ngModel)]="registryEntry.Plz">
+                    </div>
+
+                    <div class="col-sm">
+                        <label for="inputCity" class="control-label">Stadt</label>
+                        <input type="text" class="form-control" id="inputCity" name="city" placeholder="Stadt"
+                            [(ngModel)]="registryEntry.City">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div id="selectionContainer" class="row">
+            <div id="clothingSelectionContainer" class="form-group col-md">
+                <label for="inputClothingSelection">Kleidungsart</label>
+                <select id="inputClothingSelection" class="form-select" name="inputClothingSelection"
+                    [(ngModel)]="registryEntry.ClothingType">
+                    <option selected disabled hidden ngValue="default">Kleidungsart auswählen</option>
+                    <option ngValue="Damen">Damen</option>
+                    <option ngValue="Herren">Herren</option>
+                    <option ngValue="Jungen">Jungen</option>
+                    <option ngValue="Maedchen">Mädchen</option>
+                </select>
+            </div>
+
+            <div id="crisisAreaSelectionContainer" class="form-group col-md">
+                <label for="inputcrisisAreaSelection">Kriesengebiet</label>
+                <select id="inputcrisisAreaSelection" class="form-select" name="inputCrisisAreaSelection"
+                    [(ngModel)]="registryEntry.CrisisArea">
+                    <option selected disabled hidden ngValue="default">Zielgebiet auswählen</option>
+                    <option *ngFor="let area of crisisAreas" [ngValue]="area">{{area.Name}}</option>
+                </select>
+            </div>
+        </div>
+        <input id="btnSubmit" class="btn btn-primary" type="submit" title="Kleiderspende registrieren">
+    </div>
+</form>

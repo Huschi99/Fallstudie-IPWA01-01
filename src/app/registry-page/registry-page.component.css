@@ -1,0 +1,17 @@
+#adressContainer{
+    border-top: 1px solid rgb(203, 203, 203);
+    border-bottom: 1px solid rgb(203, 203, 203);
+    margin-top: 1rem;
+}
+
+#selectionContainer{
+    margin-top: 1rem;
+}
+
+#pickupSelectionContainer{
+    margin-top: 2rem;
+}
+
+#btnSubmit{
+    margin-top: 1rem;
+}
